@@ -5,6 +5,7 @@ bin
 **/.DS_Store
 yarn-error.log
 flattened
+.idea
 
 #Hardhat files
 cache
