@@ -1,5 +1,9 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "deploy:mumbai": "npx hardhat run scripts/mumbai/1-deploy.js --network mumbai",
+    "bootstrap:mumbai": "npx hardhat run scripts/mumbai/2-bootstrap.js --network mumbai"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
