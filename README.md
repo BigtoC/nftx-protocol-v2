@@ -1,13 +1,6 @@
 # NFTX Protocol v2
-The new and updated version of NFTX.
-
-## Getting Started
-
-`yarn install`
-
-`npx hardhat compile` (optional)
-
-`npx hardhat test`
+> Forked and enhanced by Bigto Chan.  
+> Forked from https://github.com/NFTX-project/nftx-protocol-v2
 
 ## Primary Contracts
 
@@ -18,6 +11,56 @@ The new and updated version of NFTX.
 - NFTXVaultFactory
 - NFTXEligibilityManager
 - Eligibility Modules
+
+## Polygon Mumbai Contract
+> Check `./addresses/1-deploy-mumbai.json` and `./addresses/2-bootstrap-mumbai.json`
+
+Or you can deploy your own contract
+
+### Deployment steps:
+
+#### 1. Setup dev environments:
+
+##### a. Install dependencies:
+```shell
+yarn install
+```
+
+##### b. Compile smart contracts (optional):
+```shell
+npx hardhat compile
+```
+
+##### c. Run test (optional):
+```shell
+npx hardhat test
+```
+
+d. Update your own `.env` file, an example file `.env.sample` is provided.
+
+#### 2. Deploy the contracts
+##### a. Update config  
+Use any ERC20 smart contract to deploy your own WETH ERC20 token,  
+then update the `wethAddress` in `./scripts/mumbai/config.js` file.  
+
+##### b. Run the command to deploy:
+```shell
+npm run deploy:mumbai
+```
+You should see below messages print on your terminal:
+![](./doc/1-deploy.png)
+
+#### 3. Bootstrap the protocol
+##### a. Update config
+Update `NFTXVaultFactoryUpgradeableAddress` and `NFTXStakingZapAddress`
+
+##### b. Run the bootstrap script
+This script mints some dummy ERC721 tokens, and create liquidity
+```shell
+npm run bootstrap:mumbai
+```
+You should see below messages print on your terminal:
+![](./doc/2-bootstrap.png)
 
 ## Mainnet Contract Addresses
 
