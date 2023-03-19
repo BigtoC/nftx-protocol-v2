@@ -12,55 +12,72 @@
 - NFTXEligibilityManager
 - Eligibility Modules
 
-## Polygon Mumbai Contract
-> Check `./addresses/1-deploy-mumbai.json` and `./addresses/2-bootstrap-mumbai.json`
+## Deploy
+> Check `./addresses/` folder
 
 Or you can deploy your own contract
 
-### Deployment steps:
 
-#### 1. Setup dev environments:
+### 1. Setup dev environments:
 
-##### a. Install dependencies:
+#### a. Install dependencies:
 ```shell
 yarn install
 ```
 
-##### b. Compile smart contracts (optional):
+#### b. Compile smart contracts (optional):
 ```shell
 npx hardhat compile
 ```
 
-##### c. Run test (optional):
+#### c. Run test (optional):
 ```shell
 npx hardhat test
 ```
 
 d. Update your own `.env` file, an example file `.env.sample` is provided.
 
-#### 2. Deploy the contracts
-##### a. Update config  
-Use any ERC20 smart contract to deploy your own WETH ERC20 token,  
-then update the `wethAddress` in `./scripts/mumbai/config.js` file.  
+### 2. Deploy the contracts
+#### a. Update config  
+> The `WETH` token address is set when the Uniswap router contract was deployed,  
+> in Polygon, `WETH` is Wrapped Matic (`WMATIC`)
 
-##### b. Run the command to deploy:
+Get `WETH` address from the deployed Uniswap router contract: `0x1b02da8cb0d097eb8d57a175b88c7d8b47997506`  
+Then update the `wethAddress` in `./scripts/mumbai/config.js` file.  
+You also need to update `config.network` value
+
+#### b. Run the command to deploy:
 ```shell
+npm run deploy:goerli
+# Or
 npm run deploy:mumbai
 ```
 You should see below messages print on your terminal:
 ![](./doc/1-deploy.png)
 
-#### 3. Bootstrap the protocol
-##### a. Update config
-Update `NFTXVaultFactoryUpgradeableAddress` and `NFTXStakingZapAddress`
+### 3. Bootstrap the protocol
+#### a. Update config
+Update `NFTSymbol` and `NFTName`
 
-##### b. Run the bootstrap script
-This script mints some dummy ERC721 tokens, and create liquidity
+#### b. Run the bootstrap script
+This script mints a ERC721 token, and create liquidity pool
 ```shell
-npm run bootstrap:mumbai
+npm run bootstrap:goerli
 ```
-You should see below messages print on your terminal:
+If no error, you should see below messages print on your terminal:
 ![](./doc/2-bootstrap.png)
+
+### 4. Trade the NFT
+The script first get the price from the contract, then make a trade.  
+Fee is not included in the price we get, so the submitted price is price * 1.2, to cover any fee that required by Uniswap
+
+Run the command to trade:
+```shell
+npm run trade:goerli
+```
+![](./doc/3-trade.png)
+
+Example trade on Goerli: [0x8df653af8c135433b92ea0b54ff7983eb24e4712f062e28731e338ef8744f8ad](https://goerli.etherscan.io/tx/0x8df653af8c135433b92ea0b54ff7983eb24e4712f062e28731e338ef8744f8ad)
 
 ## Mainnet Contract Addresses
 
