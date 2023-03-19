@@ -60,7 +60,7 @@ You should see below messages print on your terminal:
 Update `NFTSymbol` and `NFTName`
 
 #### b. Run the bootstrap script
-This script mints a ERC721 token, and create liquidity pool
+This script deploys and mints a ERC721 token, then create liquidity pool
 ```shell
 npm run bootstrap:goerli
 ```
@@ -70,6 +70,9 @@ If no error, you should see below messages print on your terminal:
 ### 4. Trade the NFT
 The script first get the price from the contract, then make a trade.  
 Fee is not included in the price we get, so the submitted price is price * 1.2, to cover any fee that required by Uniswap
+
+I'm so sorry that in step 3 I can successfully create a liquidity pool, but keep failing adding liquidity,
+so I have to create a pool with liquidity manually in the NFTX website.
 
 Run the command to trade:
 ```shell
