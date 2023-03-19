@@ -213,7 +213,7 @@ async function main() {
   await unstakingZap.setInventoryStaking(inventoryStaking.address);
   console.log("-- set inventory staking on unstakingzap");
 
-  const deployedContractAddressesFilePath = "./addresses/1-deploy-mumbai.json"
+  const deployedContractAddressesFilePath = `./addresses/1-deploy-${config.deployChain}.json`
   fs.writeFileSync(
       deployedContractAddressesFilePath,
       JSON.stringify(deployedContractMap, null, 2)

@@ -1,8 +1,11 @@
 {
   "name": "hardhat-project",
   "scripts": {
-    "deploy:mumbai": "npx hardhat run scripts/mumbai/1-deploy.js --network mumbai",
-    "bootstrap:mumbai": "npx hardhat run scripts/mumbai/2-bootstrap.js --network mumbai"
+    "deploy:mumbai": "npx hardhat run scripts/bigto/1-deploy.js --network mumbai",
+    "bootstrap:mumbai": "npx hardhat run scripts/bigto/2-bootstrap.js --network mumbai",
+    "deploy:goerli": "npx hardhat run scripts/bigto/1-deploy.js --network goerli",
+    "bootstrap:goerli": "npx hardhat run scripts/bigto/2-bootstrap.js --network goerli",
+    "trade:goerli": "npx hardhat run scripts/bigto/3-trade.js --network goerli"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

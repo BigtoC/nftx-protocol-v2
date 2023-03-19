@@ -1,9 +1,9 @@
 require("dotenv").config();
-require("@nomiclabs/hardhat-waffle");
-require("@openzeppelin/hardhat-upgrades");
-require("hardhat-gas-reporter");
-require("@nomiclabs/hardhat-etherscan");
 require("hardhat-docgen");
+require("hardhat-gas-reporter");
+require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-etherscan");
+require("@openzeppelin/hardhat-upgrades");
 
 const { ALCHEMY_API_KEY, DEV_PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env
 
@@ -15,7 +15,6 @@ module.exports = {
     goerli: {
       url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [`0x${DEV_PRIVATE_KEY}`],
-      gasPrice: 2500000000,
     },
     mainnet: {
       url: `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
