@@ -13,7 +13,8 @@
 - Eligibility Modules
 
 ## Deploy
-> Check `./addresses/` folder
+> My deployed addresses in `./addresses/` folder,    
+> My codes in `./scripts/bigto/` folder.
 
 Or you can deploy your own contract
 
